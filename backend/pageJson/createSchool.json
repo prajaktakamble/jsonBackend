@@ -1,0 +1,70 @@
+{
+    "title": "CreateSchool",
+    "name": "School",
+    "jsonPage": "viewSchool",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["School"],
+     "fields": [{
+        "name": "School name",
+        "type": "text",
+        "tableRef": "school_name",
+        "placeholder": "Enter School Name",
+        "id": "name",
+        "validation": ["required"],
+        "url": ""
+    },
+    {
+        "name": " School Address",
+        "type": "text",
+        "tableRef": "school_address",
+        "placeholder": "Enter school address",
+        "id": "school_address",
+        "validation": ["required"],
+        "url": ""
+    },
+     {
+        "name": " School phone number",
+        "type": "text",
+        "tableRef": "school_phone_number",
+        "placeholder": "Enter phnone number",
+        "id": "school_phone_number",
+        "validation": ["required"],
+        "url": ""
+    },{
+       "name": "Student Name",
+       "type": "tags",
+       "tableRef": "student_name",
+       "dropDownType": "multiple",
+       "dropDownField": "name",
+       "searchApi": "searchCall",
+       "placeholder": "select students Name",
+       "id": "input1",
+       "validation": ["", "trim", ""],
+       "url": "Student/search"
+   }
+    
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitSchool",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSchool"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewSchool"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "School/save"
+    }
+    }

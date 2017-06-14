@@ -1,0 +1,86 @@
+ {"title": "CreateStudent",
+    "name": "Student",
+    "jsonPage": "viewStudent",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["Student"],
+     "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required"],
+        "url": ""
+    },
+    {
+        "name": "Email",
+        "type": "text",
+        "tableRef": "email",
+        "placeholder": "Enter Email",
+        "id": "email",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    },
+    {
+        "name": "DOB",
+        "type": "date",
+        "tableRef": "dob",
+        "placeholder": "Enter DOB",
+        "id": "dob",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },
+    {
+        "name": "Mobile",
+        "type": "number",
+        "tableRef": "mobile",
+        "placeholder": "Enter mobile",
+        "id": "mobile",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Hobbies",
+        "type": "text",
+        "tableRef": "hobbies",
+        "placeholder": "Enter hobbies",
+        "id": "hobbies",
+        "validation": ["required"],
+        "url": ""
+    },{
+       "name": "School Name",
+       "type": "tags",
+       "tableRef": "school_name",
+       "dropDownType": "single",
+       "dropDownField": "school_name",
+       "searchApi": "searchCall",
+       "placeholder": "Enter School Name",
+       "id": "input1",
+       "validation": ["", "trim", ""],
+       "url": "School/search"
+   }
+
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitStudent",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewStudent"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewStudent"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Student/save"
+    }
+ }

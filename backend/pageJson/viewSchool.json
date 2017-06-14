@@ -1,0 +1,60 @@
+{
+    "title": "School",
+    "description": "List of Schools",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+            "name": "School name",
+            "isSort": "",
+            "tableRef": "school_name"
+        },
+        {
+            "name": "School Address",
+            "isSort": "",
+            "tableRef": "school_address"
+        },
+        {
+            "name": "School number",
+            "isSort": "",
+            "tableRef": "school_phone_number"
+        }
+        
+    ],
+    "action": [{
+            "name": "edit",
+            "icon": "fa-pencil",
+            "buttonClass": "btn-primary",
+            "type": "page",
+            "action": "editSchool",
+            "fieldsToSend": {
+                "_id": "_id"
+            }
+        },
+        {
+            "name": "delete",
+            "icon": "fa-trash",
+            "buttonClass": "btn-danger",
+            "type": "apiCallConfirm",
+            "title": "Delete School",
+            "content": "Are you sure you want to delete School?",
+            "api": "School/delete",
+            "fieldsToSend": {
+                "name": "_id",
+                "value": "_id"
+            }
+        }
+    ],
+     "button": [{
+         "name": "Create",
+        "icon": "plus",
+        "class": "btn-success",
+        "type": "page",
+        "action": "createSchool"
+    }],
+    "apiCall": {
+        "url": "School/search",
+        "params": "_id"
+    }
+    
+}
